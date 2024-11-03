@@ -1,0 +1,66 @@
+{% extends 'main.html'%}
+{%load static%}
+{%block content%}
+<main class="profile-page layout layout--3">
+  <div class="container">
+    <!-- Topics Start -->
+    <div class="topics">
+      <div class="topics__header">
+        <h2>Browse Topics</h2>
+      </div>
+    {%include 'topic_component.html '%}
+    </div>
+    <!-- Topics End -->
+
+    <!-- Room List Start -->
+    <div class="roomList">
+      <div class="profile">
+        <div class="profile__avatar">
+          <div class="avatar avatar--large active">
+            {%if user.profile.profile_image %}
+            
+              <img src="{{user.profile.profile_image.url}}" />
+            {%else%}
+              <img src="{% static '/images/avatar.svg'%}" alt="">
+            {%endif%}
+              
+            
+          </div>
+        </div>
+        <div class="profile__info">
+          <h3>{{user}}</h3>
+          <p>@{{user}}</p>
+           {% if user == request.user %}
+          <a href="{%url 'settings' %}" class="btn btn--main btn--pill">Edit Profile</a>
+          {%endif%}
+        </div>
+        <div class="profile__about">
+          <h3>About</h3>
+          <p>
+            {%if user.profile.bio %}
+            {{user.profile.bio}}
+            {%else%}
+             <p>User has no BIO</p>
+            {%endif%}
+
+
+          </p>
+        </div>
+      </div>
+
+    
+      {%include 'feed_component.html '%}
+
+    </div>
+    <!-- Room List End -->
+
+    <!-- Activities Start -->
+    {%include 'activity_component.html '%}
+    
+    <!-- Activities End -->
+  </div>
+</main>
+<script src = "{%static 'js/script.js'%}"></script>
+
+{%endblock content%}
+
