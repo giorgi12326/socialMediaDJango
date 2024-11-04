@@ -12,6 +12,15 @@ const menuButton = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width=
 <path d="M16 31.974c-2.156 0-3.908-1.753-3.908-3.908s1.753-3.908 3.908-3.908c2.156 0 3.908 1.753 3.908 3.908s-1.753 3.908-3.908 3.908zM16 26.111c-1.077 0-1.954 0.877-1.954 1.954s0.877 1.954 1.954 1.954c1.077 0 1.954-0.877 1.954-1.954s-0.877-1.954-1.954-1.954z"></path>
 </svg>
 `;
+const messagePost = document.querySelector("#mesaje");
+messagePost.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevents the default form submission
+
+  console.log("diddy");
+  window.location.reload;
+  console.log("diddy");
+
+})
 
 const actionButtons = document.querySelectorAll('.action-button');
 
